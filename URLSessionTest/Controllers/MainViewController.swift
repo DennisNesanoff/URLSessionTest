@@ -10,6 +10,7 @@ import UIKit
 
 enum UserActions: String, CaseIterable {
     case downloadImage = "Download Image"
+    case showWeather = "Show Weather"
 }
 
 class MainViewController: UICollectionViewController {
@@ -45,10 +46,11 @@ extension MainViewController {
         switch userAction {
         case .downloadImage:
             performSegue(withIdentifier: "ShowImage", sender: self)
+        case .showWeather:
+            performSegue(withIdentifier: "DetailSegue", sender: self)
         }
     }
 }
-
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MainViewController: UICollectionViewDelegateFlowLayout {
@@ -56,6 +58,3 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: UIScreen.main.bounds.width - 48, height: 100)
     }
 }
-
-// MARK: - Navigation
-
