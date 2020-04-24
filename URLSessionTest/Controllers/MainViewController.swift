@@ -10,19 +10,17 @@ import UIKit
 
 enum UserActions: String, CaseIterable {
     case downloadImage = "Download Image"
-    case showWeather = "Show Weather"
+    case get = "GET"
+    case post = "POST"
+    case detail = "Detail"
+    case uploadImage = "Upload Image"
 }
 
 class MainViewController: UICollectionViewController {
-
+    // MARK: - Private properties
     private let userActions = UserActions.allCases
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    // MARK: - Navigation
-    
+    private let urlString = "https://jsonplaceholder.typicode.com/posts"
+    private let urlUploadImage = "https://api.imgur.com/3/image"
 }
 
 // MARK: - UICollectionViewDataSource
@@ -46,8 +44,14 @@ extension MainViewController {
         switch userAction {
         case .downloadImage:
             performSegue(withIdentifier: "ShowImage", sender: self)
-        case .showWeather:
+        case .get:
+            NetworkManager.getRequest(urlString: urlString)
+        case .post:
+            NetworkManager.postRequest(urlString: urlString)
+        case .detail:
             performSegue(withIdentifier: "DetailSegue", sender: self)
+        case .uploadImage:
+            NetworkManager.uploadImage(url: urlUploadImage)
         }
     }
 }

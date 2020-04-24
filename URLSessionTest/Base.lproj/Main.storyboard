@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="1819" y="-218"/>
         </scene>
-        <!--Weather View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="VlG-jk-yKi">
             <objects>
-                <tableViewController id="DoQ-Wi-WdQ" customClass="WeatherViewController" customModule="URLSessionTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="DoQ-Wi-WdQ" customClass="TableViewController" customModule="URLSessionTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SRH-uy-Qrr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
