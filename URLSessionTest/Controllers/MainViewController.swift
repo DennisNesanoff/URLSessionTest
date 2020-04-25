@@ -12,8 +12,9 @@ enum UserActions: String, CaseIterable {
     case downloadImage = "Download Image"
     case get = "GET"
     case post = "POST"
-    case detail = "Detail"
     case uploadImage = "Upload Image"
+    case detail = "Weather with URLSession"
+    case detailWithAlamofire = "Weather with Alamofire"
 }
 
 class MainViewController: UICollectionViewController {
@@ -48,12 +49,21 @@ extension MainViewController {
             NetworkManager.getRequest(urlString: urlString)
         case .post:
             NetworkManager.postRequest(urlString: urlString)
-        case .detail:
-            performSegue(withIdentifier: "DetailSegue", sender: self)
         case .uploadImage:
             NetworkManager.uploadImage(url: urlUploadImage)
+        case .detail:
+            performSegue(withIdentifier: "DetailSegue", sender: self)
+        case .detailWithAlamofire:
+            performSegue(withIdentifier: "DetailSegueWithAlamofire", sender: self)
         }
     }
+    
+    // MARK: - Navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.destination == "DetailSegue" {
+//
+//        }
+//    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
